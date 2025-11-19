@@ -1,0 +1,47 @@
+# Agentic RAG Configuration
+
+# Embedding Configuration
+embeddings:
+  provider: "gemini"  # Options: "openai", "gemini", "huggingface"
+  model: "models/embedding-001"  # For Gemini
+  # openai_model: "text-embedding-3-small"  # For OpenAI
+  # huggingface_model: "sentence-transformers/all-MiniLM-L6-v2"  # For HuggingFace
+
+# Vector Database Configuration
+vector_db:
+  provider: "chroma"
+  persist_directory: "./chroma_db"
+  collection_name: "knowledge_base"
+
+# Chunking Configuration
+chunking:
+  chunk_size: 1000
+  chunk_overlap: 200
+  separators: ["\n\n", "\n", " ", ""]
+
+# Retrieval Configuration
+retrieval:
+  top_k: 4
+  search_type: "similarity"  # Options: "similarity", "mmr"
+  score_threshold: 0.7
+
+# LLM Configuration
+llm:
+  provider: "gemini"  # Options: "openai", "gemini", "ollama"
+  model: "gemini-2.0-flash"  # For Gemini (also: "gemini-1.5-pro", "gemini-pro")
+  temperature: 0.1
+  max_tokens: 1000
+  # openai_model: "gpt-4o-mini"  # For OpenAI
+  # ollama_model: "llama2"  # For Ollama
+  # ollama_base_url: "http://localhost:11434"
+
+# Agent Configuration
+agent:
+  max_iterations: 5
+  verbose: true
+  agent_type: "react"  # Options: "openai-tools", "react" (use "react" for Gemini)
+
+# Data Sources
+data_sources:
+  documents_directory: "./documents"
+  supported_formats: ["txt", "pdf", "md", "docx"]

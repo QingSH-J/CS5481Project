@@ -35,3 +35,4 @@ Key Concept: Chunking If you feed an entire PDF into an embedding model, you los
 
 Requirement 3 & 4: Retrieval & Answer Generation
 When a user asks a question:Embed the question.Perform a Cosine Similarity Search in the DB.Retrieve the top $k$ (usually 3-5) chunks.Stuff these chunks into a prompt.
+
